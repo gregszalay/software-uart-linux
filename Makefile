@@ -3,7 +3,7 @@ obj-m += soft_uart.o
 soft_uart-objs := module.o raspberry_soft_uart.o queue.o
 
 RELEASE = $(shell uname -r)
-LINUX = /usr/src/linux-headers-$(RELEASE)
+LINUX = /usr/src/linux-headers
 
 all:
 	$(MAKE) -C $(LINUX) M=$(PWD) modules
