@@ -23,6 +23,12 @@ module_param(gpio_tx, int, 0);
 static int gpio_rx = 27;
 module_param(gpio_rx, int, 0);
 
+static int gpio_txde = 0;
+module_param(gpio_txde, int, 0);
+
+// static const char[] gpio_txde = "ttySOFT";
+// module_param(gpio_txde, int, 0);
+
 // Module prototypes.
 static int  soft_uart_open(struct tty_struct*, struct file*);
 static void soft_uart_close(struct tty_struct*, struct file*);
@@ -73,7 +79,7 @@ static int __init soft_uart_init(void)
 {
   printk(KERN_INFO "soft_uart: Initializing module...\n");
   
-  if (!raspberry_soft_uart_init(gpio_tx, gpio_rx))
+  if (!raspberry_soft_uart_init(gpio_tx, gpio_rx, gpio_txde))
   {
     printk(KERN_ALERT "soft_uart: Failed initialize GPIO.\n");
     return -ENOMEM;

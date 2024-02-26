@@ -3,7 +3,7 @@
 
 #include <linux/tty.h>
 
-int raspberry_soft_uart_init(const int gpio_tx, const int gpio_rx);
+int raspberry_soft_uart_init(const int gpio_tx, const int gpio_rx, const int gpio_txde);
 int raspberry_soft_uart_finalize(void);
 int raspberry_soft_uart_open(struct tty_struct* tty);
 int raspberry_soft_uart_close(void);
